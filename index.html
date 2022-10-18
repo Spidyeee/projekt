@@ -1,17 +1,13 @@
 <meta charset="utf-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="scripts.js"></script>
 <div class="container">
     <div class="card mt-5 p-5">
         <h1 class="pb-2">Studenci</h1>
         <div class="row">
             <div class="col-6">
                 <p>Poniżej znajduje się lista studentów z przypisaniem do uczelni i akademika.</p>
-            </div>
-            <div class="col-6">
-                <p class="text-end mb-2">
-                    <a class="btn btn-primary">Dodaj studenta</a>
-                </p>
             </div>
         </div>
         <table class="table">
@@ -41,9 +37,9 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="student_table">
                     <tr>
-                        <td>
+                        <td class="student_id">
                             1
                         </td>
                         <td>
@@ -53,10 +49,10 @@
                             Kowalik
                         </td>
                         <td>
-                            3
+                            Politechnika Rzeszowska
                         </td>
                         <td>
-                            2
+                            Ikar
                         </td>
                         <td>
                             784175392
@@ -79,15 +75,15 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group mb-2">
                         <label class="control-label">Imie</label>
-                        <input class="form-control" />
+                        <input class="form-control" id="student_imie"/>
                     </div>
                     <div class="form-group mb-2">
-                        <label class="control-label">Nazwisko</label>
-                        <input class="form-control" />
+                        <label class="control-label" >Nazwisko</label>
+                        <input class="form-control" id="student_nazwisko"/>
                     </div>
                     <div class="form-group mb-2">
                         <label class="control-label">Uczelnie</label>
-                        <select class="form-control">
+                        <select class="form-control" id="student_uczelnia">
                             <option>Wyższa Szkoła Informatyki i Zarządzania w Rzeszowie</option>
                             <option>Politechnika Rzeszowska</option>
                             <option>Uniwersytet Rzeszowski</option>
@@ -95,7 +91,7 @@
                     </div>
                     <div class="form-group mb-2">
                         <label class="control-label">Akademik</label>
-                        <select class="form-control">
+                        <select class="form-control" id="student_akademik">
                             <option>Ikar</option>
                             <option>Pingwin</option>
                             <option>Akademik</option>
@@ -103,15 +99,15 @@
                     </div>
                     <div class="form-group mb-2">
                         <label class="control-label">Numer telefonu</label>
-                        <input type="number" class="form-control" />
+                        <input type="number" class="form-control" id="student_telefon"/>
                     </div>
                     <div class="form-group form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" asp-for="CzyAktywnyStudent" /> Aktywny student
+                            <input type="checkbox" class="form-check-input" id="student_aktywny"/> Aktywny student
                         </label>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Dodaj studenta" class="btn btn-primary" />
+                        <input type="button" value="Dodaj studenta" class="btn btn-primary" onclick="dodajStudenta()"/>
                     </div>
                 </form>
             </div>
